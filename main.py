@@ -3,6 +3,10 @@ from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
 
+
+from services.usuari_service import afegir_usuari
+
+
 app = FastAPI()
 
 load_dotenv()
@@ -17,3 +21,10 @@ def get_db():
        yield db
    finally:
        db.close()
+
+@app.post("/usuaris")
+def crear_usuari(usuari: Usuari, db: Session = Depends(get_db)):
+    return afegir_usuari(db, usuari)
+
+   
+
