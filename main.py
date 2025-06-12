@@ -1,4 +1,7 @@
 from fastapi import FastAPI, Depends
+
+from fastapi import FastAPI
+
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
@@ -6,7 +9,10 @@ import os
 
 from services.usuari_service import afegir_usuari, obtenir_usuari_per_id
 
-app = FastAPI()
+from services.usuari_service import afegir_usuari
+
+
+app = FastAPI)
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
