@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 
 from services.usuari_service import afegir_usuari
+from models.usuari import Usuari
 
 app = FastAPI()
 
